@@ -1,3 +1,12 @@
+<?php
+    $searchResult = [
+        'reports file'      => 'Reports',
+        'analytics graphs'  => 'Analytics',
+        'export download'   => 'Export',
+        'storage'           => 'Storage'
+    ];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,18 +53,17 @@
                                         </div>
                                     </div>
                                     <ul id="js-list-msg" class="list-group px-2 pb-2 js-list-filter">
+                                        <?php
+                                            if(!empty($searchResult)) :
+                                                foreach($searchResult as $key => $value):
+                                        ?>
                                         <li class="list-group-item">
-                                            <span data-filter-tags="reports file">Reports</span>
+                                            <span data-filter-tags="<?=$key?>"><?=$value?></span>
                                         </li>
-                                        <li class="list-group-item">
-                                            <span data-filter-tags="analytics graphs">Analytics</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <span data-filter-tags="export download">Export</span>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <span data-filter-tags="storage">Storage</span>
-                                        </li>
+                                        <?php
+                                            endforeach;
+                                            endif;
+                                        ?>
                                     </ul>
                                     <div class="filter-message js-filter-message mt-0 fs-sm"></div>
                                 </div>
