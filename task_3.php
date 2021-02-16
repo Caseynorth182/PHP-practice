@@ -1,3 +1,21 @@
+<?php
+$breadcrumbLinks = [
+    [
+        'title' => 'Главная',
+        'link'  => '#',
+    ],
+    [
+        'title' => 'PHP',
+        'link'  => '#',
+    ],
+    [
+        'title' => 'Функции',
+        'link'  => '#',
+    ],
+] ;
+$total = count($breadcrumbLinks);
+$counter = 0;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,9 +51,23 @@
                     <div class="panel-container show">
                         <div class="panel-content">
                             <ol class="breadcrumb page-breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Главная</a></li>
-                                <li class="breadcrumb-item"><a href="#">PHP</a></li>
-                                <li class="breadcrumb-item active">Функции</li>
+                                <?php
+                                    if(!empty($breadcrumbLinks)):
+                                         foreach ($breadcrumbLinks as $breadcrumbLink):
+                                             $counter++;
+                                                if($counter !== $total) :
+                                ?>
+                                <li class="breadcrumb-item"><a href="<?=$breadcrumbLink['link']?>"><?=$breadcrumbLink['title']?></a></li>
+                                <?php
+                                    else:
+                                ?>
+                                <li class="breadcrumb-item active"><?=$breadcrumbLink['title']?></li>
+                                <?php
+                                                 endif;
+                                         endforeach;
+                                    endif;
+                                ?>
+
                             </ol>
                         </div>
                     </div>
