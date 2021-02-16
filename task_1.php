@@ -1,9 +1,21 @@
 <?php
     $searchResult = [
-        'reports file'      => 'Reports',
-        'analytics graphs'  => 'Analytics',
-        'export download'   => 'Export',
-        'storage'           => 'Storage'
+            [
+                    'title' => 'Reports',
+                    'tag'   => 'reports file'
+            ],
+             [
+                    'title' => 'Analytics',
+                    'tag'   => 'analytics graphs'
+            ],
+            [
+                    'title' => 'Export',
+                    'tag'   => 'reports file'
+            ],
+            [
+                    'title' => 'Storage',
+                    'tag'   => 'storage'
+            ]
     ];
 ?>
 
@@ -55,10 +67,10 @@
                                     <ul id="js-list-msg" class="list-group px-2 pb-2 js-list-filter">
                                         <?php
                                             if(!empty($searchResult)) :
-                                                foreach($searchResult as $key => $value):
+                                                foreach($searchResult as $result):
                                         ?>
                                         <li class="list-group-item">
-                                            <span data-filter-tags="<?=$key?>"><?=$value?></span>
+                                            <span data-filter-tags="<?=$result['tag']?>"><?=$result['title']?></span>
                                         </li>
                                         <?php
                                             endforeach;
