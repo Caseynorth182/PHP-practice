@@ -1,3 +1,39 @@
+<?php
+$data = [
+    [
+        'title'   => 'My Tasks',
+        'result'  => '130 / 500',
+        'options' => [
+            'class' => ' bg-fusion-400',
+            'level' => 65
+        ]
+    ],
+    [
+        'title'   => 'Transfered',
+        'result'  => '440 TB',
+        'options' => [
+            'class' => ' bg-success-500',
+            'level' => 34
+        ]
+    ],
+    [
+        'title'   => 'Bugs Squashed',
+        'result'  => '77%',
+        'options' => [
+            'class' => ' bg-info-400',
+            'level' => 77
+        ]
+    ],
+    [
+        'title'   => 'User Testing',
+        'result'  => '7 days',
+        'options' => [
+            'class' => ' bg-primary-300',
+            'level' => 84
+        ]
+    ],
+];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,34 +68,20 @@
                     </div>
                     <div class="panel-container show">
                         <div class="panel-content">
+                            <?php
+                                foreach ($data as $key):
+                            ?>
                             <div class="d-flex mt-2">
-                                My Tasks
-                                <span class="d-inline-block ml-auto">130 / 500</span>
+                                <?=$key['title'];?>
+                                <span class="d-inline-block ml-auto"><?=$key['result'];?></span>
                             </div>
                             <div class="progress progress-sm mb-3">
-                                <div class="progress-bar bg-fusion-400" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar<?=$key['options']['class'];?>" role="progressbar" style="width: <?=$key['options']['level'];?>%;" aria-valuenow="<?=$key['options']['level'];?>" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                            <div class="d-flex">
-                                Transfered
-                                <span class="d-inline-block ml-auto">440 TB</span>
-                            </div>
-                            <div class="progress progress-sm mb-3">
-                                <div class="progress-bar bg-success-500" role="progressbar" style="width: 34%;" aria-valuenow="34" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <div class="d-flex">
-                                Bugs Squashed
-                                <span class="d-inline-block ml-auto">77%</span>
-                            </div>
-                            <div class="progress progress-sm mb-3">
-                                <div class="progress-bar bg-info-400" role="progressbar" style="width: 77%;" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <div class="d-flex">
-                                User Testing
-                                <span class="d-inline-block ml-auto">7 days</span>
-                            </div>
-                            <div class="progress progress-sm mb-g">
-                                <div class="progress-bar bg-primary-300" role="progressbar" style="width: 84%;" aria-valuenow="84" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
+                            <?php
+                                endforeach;
+                            ?>
+
                         </div>
                     </div>
                 </div>
