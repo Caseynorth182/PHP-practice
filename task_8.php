@@ -60,7 +60,7 @@
                                                     foreach ($dataBase as $data):
                                             ?>
                                             <tr>
-                                            <th scope="row">1</th>
+                                            <th scope="row"><?=$data['id']?></th>
                                             <td><?=$data['first_name']?></td>
                                             <td><?=$data['last_name']?></td>
                                             <td><?=$data['user_name']?></td>
