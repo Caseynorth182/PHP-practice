@@ -1,6 +1,13 @@
 <?php
 $connect = new PDO('mysql:host=localhost; dbname=marlin;charset=UTF8','root','root');
 $dataBase = $connect->query("SELECT * FROM db")->fetchAll(PDO::FETCH_ASSOC);
+
+//подключение из видео
+$pdo = new PDO('mysql:host=localhost; dbname=db','root','root');
+$sql = 'SELECT * FROM db';
+$statement = $pdo->prepare($sql);
+$statement->execute();
+$people = $statement->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
