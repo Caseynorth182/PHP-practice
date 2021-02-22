@@ -1,3 +1,13 @@
+<?php
+    $pdo = new PDO('mysql:host=localhost; dbname=marlin', 'root', 'root');
+    $sql = 'INSERT INTO db_input (text) VALUE (:text)';
+
+    $text = trim(htmlspecialchars($_POST['text']));
+    $data = ['text' => $text];
+    $statement = $pdo->prepare($sql);
+    $res = $statement->execute($data);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,9 +45,9 @@
                         <div class="panel-content">
                             <div class="panel-content">
                                 <div class="form-group">
-                                    <form action="">
+                                    <form action="" method="POST">
                                         <label class="form-label" for="simpleinput">Text</label>
-                                        <input type="text" id="simpleinput" class="form-control">
+                                        <input name="text" type="text" id="simpleinput" class="form-control">
                                         <button class="btn btn-success mt-3">Submit</button>
                                     </form>
                                 </div>
