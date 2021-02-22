@@ -1,5 +1,50 @@
 <?php
-    require_once 'task_5.php';
+$dataBase = [
+    [
+        'name'      => 'Sunny A.',
+        'position' => 'UI/UX Expert',
+        'globePoss' => 'Lead Author',
+        'options'   => [
+            'image_url'     => 'img/demo/authors/sunny.png',
+            'twitter_login' => '@myplaneticket',
+            'email'         => 'https://wrapbootstrap.com/user/myorange',
+        ],
+        'banStatus'  => 0,
+    ],
+    [
+        'name'      => 'Jos K.',
+        'position' => 'ASP.NET Developer',
+        'globePoss' => 'Partner &amp; Contributor',
+        'options'   => [
+            'image_url'     => 'img/demo/authors/josh.png',
+            'twitter_login' => '@atlantez',
+            'email'         => 'https://wrapbootstrap.com/user/Walapa',
+        ],
+        'banStatus'  => 0,
+    ],
+    [
+        'name'      => 'Jovanni L.',
+        'position' => 'PHP Developer',
+        'globePoss' => 'Partner &amp; Contributor',
+        'options'   => [
+            'image_url'     => 'img/demo/authors/jovanni.png',
+            'twitter_login' => '@lodev09',
+            'email'         => 'https://wrapbootstrap.com/user/lodev09',
+        ],
+        'banStatus'  => 1,
+    ],
+    [
+        'name'      => 'Roberto R.',
+        'position' => 'Rails Developer',
+        'globePoss' => 'Partner &amp; Contributor',
+        'options'   => [
+            'image_url'     => 'img/demo/authors/roberto.png',
+            'twitter_login' => '@sildur',
+            'email'         => 'https://wrapbootstrap.com/user/sildur',
+        ],
+        'banStatus'  => 1,
+    ],
+];
 ?>
 
 <!DOCTYPE html>
