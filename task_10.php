@@ -1,3 +1,8 @@
+<?php
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,12 +39,30 @@
                         <div class="panel-content">
                             <div class="panel-content">
                                 <div class="form-group">
+                                    <?php
+                                       if(isset($_SESSION['danger'])):
+                                    ?>
                                     <div class="alert alert-danger fade show" role="alert">
-                                        You should check in on some of those fields below.
+                                        <?php
+                                        echo $_SESSION['danger'];
+                                        unset($_SESSION['danger'])
+                                        ?>
                                     </div>
-                                    <form action="">
+                                   <?php
+                                       elseif(isset($_SESSION['success'])):
+                                   ?>
+                                   <div class="alert alert-success fade show" role="alert">
+                                       <?php
+                                       echo $_SESSION['success'];
+                                       unset($_SESSION['success']);
+                                       ?>
+                                   </div>
+                                    <?php
+                                        endif;
+                                    ?>
+                                    <form action="task_10_next_page.php" method="POST">
                                         <label class="form-label" for="simpleinput">Text</label>
-                                        <input type="text" id="simpleinput" class="form-control">
+                                        <input name="text" type="text" id="simpleinput" class="form-control">
                                         <button class="btn btn-success mt-3">Submit</button>
                                     </form>
                                 </div>
@@ -49,7 +72,7 @@
                 </div>
             </div>
         </main>
-        
+
 
         <script src="js/vendors.bundle.js"></script>
         <script src="js/app.bundle.js"></script>
